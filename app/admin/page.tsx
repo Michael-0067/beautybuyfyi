@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
         setError(data.error ?? "Login failed");
         return;
       }
-      router.push("/admin/briefs");
+      router.push("/admin/dashboard");
       router.refresh();
     } catch {
       setError("Network error");
