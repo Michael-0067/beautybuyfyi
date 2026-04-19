@@ -4,10 +4,11 @@ import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { CompareBuilder } from "./CompareBuilder";
 import { SITE_URL } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Compare Vacuums",
-  description: "Compare 2 or 3 vacuum Briefs side by side — key facts, specs, buyer patterns, and the expert take.",
+  title: `Compare ${NICHE.subjectLabel} Products`,
+  description: `Compare 2 or 3 ${NICHE.subject} Briefs side by side — key facts, specs, buyer patterns, and the expert take.`,
   alternates: { canonical: `${SITE_URL}/compare` },
 };
 
@@ -20,14 +21,14 @@ export default async function ComparePage() {
 
   return (
     <div className="space-y-8">
-      <Breadcrumb crumbs={[{ label: "Home", href: "/" }, { label: "Compare Vacuums" }]} />
+      <Breadcrumb crumbs={[{ label: "Home", href: "/" }, { label: `Compare ${NICHE.subjectLabel} Products` }]} />
 
       <div className="space-y-2 pt-2">
         <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text)" }}>
-          Compare Vacuums
+          Compare {NICHE.subjectLabel} Products
         </h1>
         <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
-          Search for 2 or 3 vacuum Briefs and compare them side by side — key facts, specs, review patterns,
+          Search for 2 or 3 {NICHE.subject} Briefs and compare them side by side — key facts, specs, review patterns,
           and the expert take. Comparison pages are permanent and shareable.
         </p>
       </div>

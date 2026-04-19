@@ -4,14 +4,15 @@ import Image from "next/image";
 import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { SITE_URL } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 import type { PriceData } from "@/lib/normalize";
 import type { ReviewSummaryData } from "@/lib/normalize";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Vacuum Briefs",
-  description: "Expert vacuum product Briefs — structured analysis on robot vacuums, uprights, stick vacs, and more.",
+  title: `${NICHE.subjectLabel} Briefs`,
+  description: `Expert ${NICHE.subject} Briefs — structured analysis on ${NICHE.productDescription}.`,
   alternates: { canonical: `${SITE_URL}/briefs` },
 };
 
@@ -63,10 +64,10 @@ export default async function BriefsPage({ searchParams }: Props) {
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="space-y-1 pt-2">
           <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text)" }}>
-            Vacuum Briefs
+            {NICHE.subjectLabel} Briefs
           </h1>
           <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
-            Structured expert analysis on vacuum cleaners and floor care equipment.
+            Structured expert analysis on {NICHE.productDescription}.
           </p>
         </div>
         <Link
@@ -214,7 +215,7 @@ export default async function BriefsPage({ searchParams }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Vacuum Briefs",
+            name: `${NICHE.subjectLabel} Briefs`,
             url: `${SITE_URL}/briefs`,
             itemListElement: products.map((product, i) => ({
               "@type": "ListItem",

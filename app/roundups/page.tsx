@@ -3,12 +3,13 @@ import Link from "next/link";
 import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { SITE_URL } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Vacuum Roundups",
-  description: "Curated vacuum roundups — expert-written collections covering robot vacuums, uprights, stick vacs, and more.",
+  title: `${NICHE.subjectLabel} Roundups`,
+  description: `Curated ${NICHE.subject} roundups — expert-written collections covering ${NICHE.productDescription}.`,
   alternates: { canonical: `${SITE_URL}/roundups` },
 };
 
@@ -63,7 +64,7 @@ export default async function RoundupsPage({ searchParams }: Props) {
       <div className="space-y-2 pt-2">
         <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text)" }}>Roundups</h1>
         <p className="text-base max-w-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          Curated collections of vacuum Briefs, grouped by type, use case, or price tier.
+          Curated collections of {NICHE.subject} Briefs, grouped by type, use case, or price tier.
         </p>
       </div>
 
@@ -140,7 +141,7 @@ export default async function RoundupsPage({ searchParams }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Vacuum Roundups",
+            name: `${NICHE.subjectLabel} Roundups`,
             url: `${SITE_URL}/roundups`,
             itemListElement: roundups.map((roundup, i) => ({
               "@type": "ListItem",

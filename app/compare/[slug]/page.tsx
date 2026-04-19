@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { SITE_URL } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 import { affiliateUrl, affiliateUrlFromAsin } from "@/lib/amazon";
 import type { GeneratedPageData } from "@/lib/generate/sections";
 import type { NormalizedAttributes, PriceData } from "@/lib/normalize";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!comparison) return {};
   return {
     title: comparison.title,
-    description: `Vacuum comparison: ${comparison.title}. Side-by-side key facts, specs, buyer patterns, and expert analysis.`,
+    description: `${NICHE.subjectLabel} comparison: ${comparison.title}. Side-by-side key facts, specs, buyer patterns, and expert analysis.`,
     alternates: { canonical: `${SITE_URL}/compare/${slug}` },
   };
 }
@@ -122,7 +123,7 @@ export default async function ComparisonPage({ params }: Props) {
         <div className="space-y-1 pt-2">
           <h1 className="text-2xl font-bold" style={{ color: "var(--text)" }}>{comparison.title}</h1>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-            {cols} vacuums compared · key facts, buyer patterns, specs
+            {cols} {NICHE.subjectPlural} compared · key facts, buyer patterns, specs
           </p>
         </div>
         <Link href="/compare" className="text-sm mt-3 hover:underline underline-offset-2" style={{ color: "var(--accent)" }}>

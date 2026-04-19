@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 import { affiliateUrl, affiliateUrlFromAsin } from "@/lib/amazon";
 import { GURU } from "@/lib/guru";
 import type { GeneratedPageData } from "@/lib/generate/sections";
@@ -27,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.productName,
-    description: `${product.brand ? `${product.brand} — ` : ""}Expert vacuum Brief: ${product.productName}. Structured analysis on ${product.category ?? "vacuum"} products.`,
+    description: `${product.brand ? `${product.brand} — ` : ""}Expert ${NICHE.subject} Brief: ${product.productName}. Structured analysis on ${product.category ?? NICHE.subject} products.`,
     alternates: { canonical: `${SITE_URL}/briefs/${slug}` },
     openGraph: {
       title: product.productName,
-      description: `Expert vacuum Brief by ${GURU.name} on ${SITE_NAME}`,
+      description: `Expert ${NICHE.subject} Brief by ${GURU.name} on ${SITE_NAME}`,
       images: thumb ? [{ url: thumb }] : [],
     },
   };
@@ -141,7 +142,7 @@ export default async function BriefPage({ params }: Props) {
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm hover:opacity-80 transition-opacity"
               style={{ background: "var(--surface-alt)", border: "1px solid var(--border)", color: "var(--text-muted)" }}
             >
-              Compare this vacuum →
+              Compare this {NICHE.subject} →
             </Link>
           </div>
         </div>

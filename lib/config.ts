@@ -12,6 +12,7 @@ export const NICHE = {
   // ── Product niche ──────────────────────────────────────────────────────────
   subject: "luxury beauty product",                 // singular noun, lowercase
   subjectPlural: "luxury beauty products",          // plural noun, lowercase
+  subjectLabel: "Luxury Beauty",                    // title-case label for headings, e.g. "Luxury Beauty Briefs"
   productDescription: "luxury cosmetics and high-end beauty products",
 
   // ── Contact ────────────────────────────────────────────────────────────────

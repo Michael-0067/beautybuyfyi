@@ -4,12 +4,13 @@ import Image from "next/image";
 import { db } from "@/lib/db/prisma";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { SITE_URL } from "@/lib/site";
+import { NICHE } from "@/lib/config";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Vacuum Comparisons",
-  description: "Browse side-by-side vacuum comparisons built by our readers — key facts, specs, and the expert take.",
+  title: `${NICHE.subjectLabel} Comparisons`,
+  description: `Browse side-by-side ${NICHE.subject} comparisons built by our readers — key facts, specs, and the expert take.`,
   alternates: { canonical: `${SITE_URL}/comparisons` },
 };
 
@@ -52,7 +53,7 @@ export default async function ComparisonsPage({ searchParams }: Props) {
       <div className="flex items-start justify-between gap-4 flex-wrap pt-2">
         <div className="space-y-1">
           <h1 className="text-3xl font-bold tracking-tight" style={{ color: "var(--text)" }}>
-            Vacuum Comparisons
+            {NICHE.subjectLabel} Comparisons
           </h1>
           <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
             Side-by-side comparisons built from our Briefs — key facts, specs, and the expert take.
@@ -170,7 +171,7 @@ export default async function ComparisonsPage({ searchParams }: Props) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Vacuum Comparisons",
+            name: `${NICHE.subjectLabel} Comparisons`,
             url: `${SITE_URL}/comparisons`,
             itemListElement: comparisons.map((comp, i) => ({
               "@type": "ListItem",

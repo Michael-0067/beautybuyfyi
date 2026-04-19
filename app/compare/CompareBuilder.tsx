@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { NICHE } from "@/lib/config";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface BriefResult {
@@ -161,7 +162,7 @@ export function CompareBuilder() {
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Type a vacuum name or keyword…"
+          placeholder={`Type a ${NICHE.subject} name or keyword…`}
           className="w-full px-3 py-2.5 rounded-lg text-sm focus:outline-none"
           style={{ background: "var(--surface-alt)", border: "1px solid var(--border)", color: "var(--text)" }}
         />
@@ -253,13 +254,13 @@ export function CompareBuilder() {
       <div className="rounded-xl p-5 space-y-4" style={{ background: "var(--surface)", border: "1px solid var(--border)" }}>
         <div className="flex items-center justify-between">
           <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--text-muted)" }}>
-            Selected Vacuums
+            Selected {NICHE.subjectLabel} Products
           </p>
           <span className="text-xs" style={{ color: "var(--text-muted)" }}>{staged.length} / 3</span>
         </div>
 
         {staged.length === 0 ? (
-          <p className="text-sm" style={{ color: "var(--text-muted)" }}>Add 2 or 3 vacuums above to compare them side by side.</p>
+          <p className="text-sm" style={{ color: "var(--text-muted)" }}>Add 2 or 3 {NICHE.subjectPlural} above to compare them side by side.</p>
         ) : (
           <div className="space-y-2">
             {staged.map((s) => (
@@ -292,8 +293,8 @@ export function CompareBuilder() {
           {submitting
             ? "Creating comparison…"
             : staged.length < 2
-            ? `Add ${2 - staged.length} more vacuum${2 - staged.length === 1 ? "" : "s"} to compare`
-            : `Compare ${staged.length} vacuum${staged.length > 1 ? "s" : ""} →`}
+            ? `Add ${2 - staged.length} more to compare`
+            : `Compare ${staged.length} ${NICHE.subjectPlural} →`}
         </button>
       </div>
 
