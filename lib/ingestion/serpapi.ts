@@ -229,7 +229,7 @@ function extractDescription(data: Record<string, unknown>): string | undefined {
 function extractCategory(data: Record<string, unknown>): string | undefined {
   const breadcrumbs = data.breadcrumbs as Array<Record<string, string>> | undefined;
   if (Array.isArray(breadcrumbs) && breadcrumbs.length > 1) {
-    return breadcrumbs[breadcrumbs.length - 1]?.name;
+    return breadcrumbs[1]?.name;
   }
   return undefined;
 }

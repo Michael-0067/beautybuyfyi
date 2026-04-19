@@ -5,11 +5,11 @@
 import OpenAI from "openai";
 import type { NormalizedProduct } from "@/lib/normalize";
 import type { SerpApiReviewInsight } from "@/lib/ingestion/serpapi";
-import { VACUUM_CATEGORIES } from "@/lib/categories";
-import type { VacuumCategory } from "@/lib/categories";
+import { BEAUTY_CATEGORIES } from "@/lib/categories";
+import type { BeautyCategory } from "@/lib/categories";
 
-export { VACUUM_CATEGORIES } from "@/lib/categories";
-export type { VacuumCategory } from "@/lib/categories";
+export { BEAUTY_CATEGORIES } from "@/lib/categories";
+export type { BeautyCategory } from "@/lib/categories";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const MODEL = process.env.MODEL_STRUCTURED_EXTRACTION ?? "gpt-4o-mini";
@@ -18,7 +18,7 @@ export async function classifyProductCategory(
   productName: string,
   features: string[],
   description: string | null,
-): Promise<VacuumCategory> {
+): Promise<BeautyCategory> {
   const context = [
     `Product: ${productName}`,
     description ? `Description: ${description}` : "",
@@ -32,8 +32,8 @@ export async function classifyProductCategory(
         {
           role: "system",
           content:
-            `You are a vacuum cleaner product classifier. Choose the single best-fitting category from this list:\n\n` +
-            VACUUM_CATEGORIES.map((c) => `- ${c}`).join("\n") + `\n\n` +
+            `You are a luxury beauty product classifier. Choose the single best-fitting category from this list:\n\n` +
+            BEAUTY_CATEGORIES.map((c) => `- ${c}`).join("\n") + `\n\n` +
             `Rules:\n` +
             `- Respond with exactly one category name from the list above, copied exactly.\n` +
             `- Do NOT add any other words.\n` +
@@ -45,12 +45,12 @@ export async function classifyProductCategory(
     });
 
     const result = completion.choices[0].message.content?.trim() ?? "";
-    if ((VACUUM_CATEGORIES as readonly string[]).includes(result)) return result as VacuumCategory;
+    if ((BEAUTY_CATEGORIES as readonly string[]).includes(result)) return result as BeautyCategory;
 
-    const fuzzy = (VACUUM_CATEGORIES as readonly string[]).find(
+    const fuzzy = (BEAUTY_CATEGORIES as readonly string[]).find(
       (c) => c.toLowerCase().includes(result.toLowerCase()) || result.toLowerCase().includes(c.toLowerCase().split(" ")[0].toLowerCase())
     );
-    return (fuzzy as VacuumCategory) ?? "Other";
+    return (fuzzy as BeautyCategory) ?? "Other";
   } catch {
     return "Other";
   }
