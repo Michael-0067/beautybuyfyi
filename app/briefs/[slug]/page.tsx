@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.productName,
-    description: `${product.brand ? `${product.brand} — ` : ""}Expert ${NICHE.subject} Brief: ${product.productName}. Structured analysis on ${product.category ?? NICHE.subject} products.`,
+    description: `${product.brand ? `${product.brand} — ` : ""}Informed ${NICHE.subject} Brief: ${product.productName}. Structured analysis on ${product.category ?? NICHE.subject} products.`,
     alternates: { canonical: `${SITE_URL}/briefs/${slug}` },
     openGraph: {
       title: product.productName,
-      description: `Expert ${NICHE.subject} Brief by ${GURU.name} on ${SITE_NAME}`,
+      description: `Informed ${NICHE.subject} Brief by ${GURU.name} on ${SITE_NAME}`,
       images: thumb ? [{ url: thumb }] : [],
     },
   };
@@ -148,7 +148,7 @@ export default async function BriefPage({ params }: Props) {
         </div>
       </div>
 
-      {/* Expert Brief */}
+      {/* Informed Brief */}
       {product.briefContent && (
         <section className="space-y-4">
           <div className="flex items-center gap-2">

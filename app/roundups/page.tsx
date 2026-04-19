@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: `${NICHE.subjectLabel} Roundups`,
-  description: `Curated ${NICHE.subject} roundups — expert-written collections covering ${NICHE.productDescription}.`,
+  description: `Curated ${NICHE.subject} roundups — informed collections covering ${NICHE.productDescription}.`,
   alternates: { canonical: `${SITE_URL}/roundups` },
 };
 

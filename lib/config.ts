@@ -30,7 +30,7 @@ export const NICHE = {
   // ── Homepage hero ──────────────────────────────────────────────────────────
   heroLine1:      "Luxury Beauty intelligence,",
   heroLine2:      "before you buy.",
-  heroSubtext:    "Expert Briefs on luxury cosmetics and high-end beauty products — structured, analytical, and free of hype. Compare side by side. Read the roundups. Buy with clarity.",
+  heroSubtext:    "Informed Briefs on luxury cosmetics and high-end beauty products — structured, analytical, and free of hype. Compare side by side. Read the roundups. Buy with clarity.",
   heroCtaPrimary: "Compare Luxury Cosmetics →",
 
   // ── Footer ─────────────────────────────────────────────────────────────────

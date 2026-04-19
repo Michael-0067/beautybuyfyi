@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!comparison) return {};
   return {
     title: comparison.title,
-    description: `${NICHE.subjectLabel} comparison: ${comparison.title}. Side-by-side key facts, specs, buyer patterns, and expert analysis.`,
+    description: `${NICHE.subjectLabel} comparison: ${comparison.title}. Side-by-side key facts, specs, buyer patterns, and informed analysis.`,
     alternates: { canonical: `${SITE_URL}/compare/${slug}` },
   };
 }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    `Structured ${NICHE.subject} product intelligence for smarter buying. Expert Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
+    `Structured ${NICHE.subject} product intelligence for smarter buying. Informed Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ${NICHE.heroLine1} ${NICHE.heroLine2}`,
     description:
-      `Structured ${NICHE.subject} product intelligence for smarter buying. Expert Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
+      `Structured ${NICHE.subject} product intelligence for smarter buying. Informed Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
     images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} — ${NICHE.heroLine1} ${NICHE.heroLine2}`,
     description:
-      `Structured ${NICHE.subject} product intelligence for smarter buying. Expert Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
+      `Structured ${NICHE.subject} product intelligence for smarter buying. Informed Briefs, side-by-side comparisons, and curated roundups — before you buy.`,
     images: [DEFAULT_OG_IMAGE],
   },
 };

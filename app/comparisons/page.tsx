@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: `${NICHE.subjectLabel} Comparisons`,
-  description: `Browse side-by-side ${NICHE.subject} comparisons built by our readers — key facts, specs, and the expert take.`,
+  description: `Browse side-by-side ${NICHE.subject} comparisons built by our readers — key facts, specs, and the informed take.`,
   alternates: { canonical: `${SITE_URL}/comparisons` },
 };
 
@@ -56,7 +56,7 @@ export default async function ComparisonsPage({ searchParams }: Props) {
             {NICHE.subjectLabel} Comparisons
           </h1>
           <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
-            Side-by-side comparisons built from our Briefs — key facts, specs, and the expert take.
+            Side-by-side comparisons built from our Briefs — key facts, specs, and the informed take.
           </p>
         </div>
         <Link

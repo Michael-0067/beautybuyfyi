@@ -8,7 +8,7 @@ import { NICHE } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: `Compare ${NICHE.subjectLabel} Products`,
-  description: `Compare 2 or 3 ${NICHE.subject} Briefs side by side — key facts, specs, buyer patterns, and the expert take.`,
+  description: `Compare 2 or 3 ${NICHE.subject} Briefs side by side — key facts, specs, buyer patterns, and the informed take.`,
   alternates: { canonical: `${SITE_URL}/compare` },
 };
 
@@ -29,7 +29,7 @@ export default async function ComparePage() {
         </h1>
         <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
           Search for 2 or 3 {NICHE.subject} Briefs and compare them side by side — key facts, specs, review patterns,
-          and the expert take. Comparison pages are permanent and shareable.
+          and the informed take. Comparison pages are permanent and shareable.
         </p>
       </div>
 

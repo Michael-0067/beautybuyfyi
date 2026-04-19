@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: `${NICHE.subjectLabel} Briefs`,
-  description: `Expert ${NICHE.subject} Briefs — structured analysis on ${NICHE.productDescription}.`,
+  description: `Informed ${NICHE.subject} Briefs — structured analysis on ${NICHE.productDescription}.`,
   alternates: { canonical: `${SITE_URL}/briefs` },
 };
 
@@ -67,7 +67,7 @@ export default async function BriefsPage({ searchParams }: Props) {
             {NICHE.subjectLabel} Briefs
           </h1>
           <p className="text-base leading-relaxed max-w-xl" style={{ color: "var(--text-secondary)" }}>
-            Structured expert analysis on {NICHE.productDescription}.
+            Structured, informed analysis on {NICHE.productDescription}.
           </p>
         </div>
         <Link

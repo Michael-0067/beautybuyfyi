@@ -200,7 +200,7 @@ export default async function HomePage() {
           Can&apos;t decide between two?
         </h2>
         <p className="text-sm max-w-md mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-          Select 2 or 3 {NICHE.subjectPlural} and compare them side by side — key facts, specs, buyer patterns, and the expert take.
+          Select 2 or 3 {NICHE.subjectPlural} and compare them side by side — key facts, specs, buyer patterns, and the informed take.
           Comparison pages are permanent and shareable.
         </p>
         <Link
@@ -314,7 +314,7 @@ export default async function HomePage() {
             "@type": "WebSite",
             name: SITE_NAME,
             url: SITE_URL,
-            description: `Structured ${NICHE.subject} product intelligence — expert Briefs, comparisons, and roundups.`,
+            description: `Structured ${NICHE.subject} product intelligence — informed Briefs, comparisons, and roundups.`,
           }),
         }}
       />
